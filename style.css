@@ -1,0 +1,1158 @@
+body {
+    scroll-behavior: smooth;
+    background-color: #202020;
+}
+
+.carousel-item img {
+    filter: brightness(50%);
+    height: calc(100vh - 40px);
+}
+
+.d-inline-flex {
+    color: white;
+    height: calc(100vh - 92px);
+
+}
+
+.navbar-nav {
+    gap: 10px;
+}
+
+.navbar-nav .nav-link.active {
+    color: #d96716 !important;
+}
+
+.dropdown-menu .dropdown {
+    position: relative;
+}
+
+.dropdown-menu .dropdown ul {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    margin: 0;
+    padding: 0.5rem 0;
+    list-style: none;
+    min-width: 10rem;
+
+    background-color: var(--bs-dropdown-bg, #212529);
+    border: 1px solid var(--bs-dropdown-border-color, rgba(255, 255, 255, 0.15));
+    border-radius: var(--bs-dropdown-border-radius, 0.375rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+}
+
+.dropdown-menu .dropdown.active>ul {
+    display: block;
+}
+
+a:hover {
+    color: rgb(243, 137, 16) !important;
+}
+
+.dropdown ul a {
+    text-decoration: none;
+    color: #d0d0d0;
+}
+
+em {
+    color: rgb(243, 137, 16);
+}
+
+#hero h1.card-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+#hero .card-text {
+    font-size: 1.25rem;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+}
+
+.btn-brand {
+    background-color: rgb(243, 137, 16);
+    color: white;
+    border: 1px solid rgb(243, 137, 16);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary {
+    background-color: #3d3939;
+    border-color: #3d3939;
+    color: #c0c0c0;
+}
+
+.btn-secondary i {
+    font-style: normal;
+    color: #c0c0c0;
+}
+
+.btn-brand:hover {
+    background-color: rgb(215, 115, 5);
+    border-color: rgb(215, 115, 5);
+    color: white;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(243, 137, 16);
+    border: 1px solid rgb(243, 137, 16);
+    border-radius: 50px;
+    background-color: rgba(243, 137, 16, 0.05);
+    margin-bottom: 25px;
+}
+
+#hero h1.card-title {
+    margin-top: 0;
+}
+
+.info-bar {
+    background-color: transparent;
+    padding: 25px 15px;
+    border-radius: 8px;
+    color: #ffffff;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.info-bar .col-md-4 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 25px;
+}
+
+.info-bar-item {
+    background-color: rgba(243, 137, 16, 0.05);
+    color: rgb(243, 137, 16);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.info-bar-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-bar-text span {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.info-bar-text strong {
+    font-size: 0.95rem;
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.info-bar .col-md-4 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 25px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.info-bar-item {
+    background-color: rgba(243, 137, 16, 0.05);
+    color: rgb(243, 137, 16);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.info-bar .col-md-4:hover {
+    background-color: rgba(243, 137, 16, 0.08);
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+    color: white;
+    font-family: var(--heading-font);
+    text-align: center;
+    margin-top: 0;
+    line-height: 1.2;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: rgb(243, 137, 16);
+    text-decoration-thickness: 2px;
+}
+
+.section-title p {
+    text-align: center;
+    font-size: 15px;
+    color: rgb(228, 221, 221);
+    padding-bottom: 10px;
+}
+
+/* 1. Default state: sit below the top bar (40px) and start transparent */
+.navbar.fixed-top {
+    top: 40px;
+    background-color: transparent !important;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 2. Scrolled state: slide up to the very top (0px) and turn solid black */
+.navbar.fixed-top.select-scrolled {
+    top: 0;
+    background-color: #000000 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    /* Adds a premium soft shadow on scroll */
+}
+
+.text-lead {
+    font-size: 1.1rem;
+    color: #d0d0d0;
+    margin-bottom: 12px;
+}
+
+/* Card container styling */
+.highlight-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Soft translucent gray/white */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Subtle border to define the card edge */
+    padding: 25px;
+    /* Spacing inside the card */
+    border-radius: 10px;
+    /* Rounded card corners */
+    height: 100%;
+    /* Forces cards to remain equal height in the row */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-card:hover {
+    transform: scale(1.03);
+    /* Zooms the card by 3% */
+    border-color: rgba(255, 255, 255, 0.15);
+    /* Brightens the card border slightly */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    /* Adds a subtle shadow depth */
+}
+
+
+/* Style the icon wrapper to be a solid orange box */
+.highlight-card .icon-wrap {
+    background-color: #f38910;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    /* Rounded corners for the box */
+    margin-bottom: 15px;
+    /* Adds space below the box */
+}
+
+/* Style the icon inside to be white */
+.highlight-card .icon-wrap i {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.floating-card {
+    position: absolute;
+    /* Use negative values to pull the card outside the bottom-left boundary of the image */
+    left: -15px;
+    bottom: -15px;
+
+    background-color: rgb(243, 137, 16);
+    color: #ffffff;
+    padding: 20px 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    /* Increased shadow so the overflow layer pop-out looks premium */
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.floating-card .metric-number {
+    font-family: sans-serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.floating-card .metric-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+/* Add a transition to all images inside the showcase/visual block */
+.visual-block img {
+    transition: transform 0.4s ease;
+    cursor: pointer;
+}
+
+/* Zoom image on hover */
+.visual-block img:hover {
+    transform: scale(1.03);
+    /* Zooms the image by 3% */
+}
+
+/* --- Menu & Isotope Filters --- */
+
+/* Filter Tabs Wrapper */
+.filter-tabs {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Horizontal pill container */
+.filter-tabs ul {
+    display: inline-flex;
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Translucent background */
+    padding: 6px;
+    border-radius: 50px;
+    list-style: none;
+    margin: 0;
+    flex-wrap: wrap;
+    /* Responsive wrapping for small screens */
+    justify-content: center;
+}
+
+/* Individual Tab Items */
+.filter-tabs .filter-tab {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #c0c0c0;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Hover State: Simply change text color to white */
+.filter-tabs .filter-tab:hover {
+    color: #ffffff;
+}
+
+/* Active/Selected Tab State: Underline only, with offset spacing and no box shadow */
+.filter-tabs .filter-tab.active {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    /* Adds space between the text and the underline */
+    text-decoration-color: rgb(243, 137, 16);
+    /* Orange underline color */
+    text-decoration-thickness: 2px;
+    /* Underline line thickness */
+    box-shadow: none;
+    /* Removes any box shadow */
+    background-color: transparent;
+    /* Ensures no background box */
+}
+
+
+/* --- Menu Grid Cards --- */
+.menu-item-wrapper {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.menu-item-image {
+    align-self: stretch;
+    /* Fills the height of the parent flex wrapper */
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* 2. Position the tag stack at the top-left of the image */
+.tag-stack {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* Gap if you stack multiple tags vertically later */
+}
+
+/* 3. Base styles for the tag badge (perfect circle) */
+.tag {
+    display: inline-flex;
+    /* Changed from display: flex */
+    align-items: center;
+    justify-content: center;
+    padding: 3px 8px;
+    /* Added padding instead of fixed width and height */
+    border-radius: 4px;
+    /* Rounds the corners of the pill badge */
+    font-size: 0.6rem;
+    /* Slightly smaller font to fit well on the image */
+    font-weight: 800;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    white-space: nowrap;
+    /* Prevents text from breaking into multiple lines */
+}
+
+/* 4. Green background color specifically for Veggie indicator */
+.tag-veggie {
+    background-color: rgb(40, 167, 69);
+    /* Clean green color */
+}
+
+.tag-chef-special {
+    background-color: peru;
+}
+
+.menu-item-image img {
+    height: 100% !important;
+    /* Forces the image to cover the full card height */
+    width: 130px;
+    /* Adjust the width of the image as you like */
+    object-fit: cover;
+    /* Keeps the image aspect ratio correct without stretching */
+    border-radius: 0 !important;
+    /* Clears standard img border radius (wrapper clips it now) */
+}
+
+/* 3. Add padding to the text block instead */
+.menu-item-info {
+    padding: 15px 20px;
+    /* Adds padding around the text content */
+}
+
+.menu-item-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(243, 137, 16, 0.3);
+    transform: translateY(-2px);
+}
+
+.menu-item-description {
+    font-size: 0.88rem;
+    color: #d0d0d0;
+    margin-bottom: 12px;
+    padding-right: 45px;
+}
+
+.menu-item-price {
+    color: rgb(243, 137, 16);
+}
+
+/* --- Heat Indicator Styles --- */
+
+/* Align the fire icon and the progress bar horizontally */
+.heat-indicator {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Fire Icon style and color */
+.heat-indicator i {
+    color: rgb(243, 137, 16);
+    font-size: 1.15rem;
+    /* Slightly larger icon */
+    line-height: 1;
+}
+
+/* The empty progress bar track */
+.heat-bar {
+    display: inline-block;
+    width: 80px;
+    /* Horizontal width of the bar */
+    height: 6px;
+    /* Thickness of the bar */
+    background-color: rgba(255, 255, 255, 0.15);
+    /* Translucent empty track background */
+    border-radius: 10px;
+    margin-left: 8px;
+    /* Spacing between the icon and the bar */
+    overflow: hidden;
+    /* Clips the inner fill to matches the track's rounded corners */
+    position: relative;
+}
+
+/* The filled progress bar with gradient */
+.heat-fill {
+    display: block;
+    height: 100%;
+    /* Gradient starts at brand orange and fades to red */
+    background: linear-gradient(90deg, rgb(243, 137, 16) 0%, rgb(255, 59, 48) 100%);
+    border-radius: 10px;
+}
+
+.info-strip .bi-calendar2-check {
+    color: rgb(243, 137, 16);
+    padding: 5px;
+}
+
+/* Styled Download Button */
+.download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    /* Space between the PDF icon and text */
+    background-color: rgb(243, 137, 16);
+    /* Orange background */
+    color: #ffffff;
+    /* White text */
+    padding: 8px 16px;
+    /* 8px top/bottom padding, 16px left/right for a balanced button shape */
+    border-radius: 6px;
+    /* Rounded corners for the rectangle box */
+    text-decoration: none;
+    /* Removes the underline */
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    /* Smooth hover transition */
+}
+
+/* Hover effects for the button */
+.download-link:hover {
+    background-color: rgb(215, 115, 5);
+    /* Darkens slightly on hover */
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(243, 137, 16, 0.3);
+    /* Premium glow shadow */
+    transform: translateY(-1px);
+    /* Slight lift */
+}
+
+/* Adjust size of the PDF icon inside the button */
+.download-link i {
+    font-size: 1.1rem;
+}
+
+.info-strip {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px 20px;
+    border-radius: 20px;
+}
+
+/* Spotlight header — center all content */
+.specials-section .spotlight-header {
+    text-align: center;
+    /* Centers all inline and inline-flex children */
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+/* The label pill */
+.specials-section .spotlight-header .spotlight-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #ff9f1c;
+    margin-bottom: 10px;
+}
+
+.spotlight-header p {
+    margin-bottom: 30px;
+}
+
+/* Pick badge — positioned over the spotlight image */
+.pick-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    /* Styling to make it stand out */
+    background-color: rgb(243, 137, 16);
+    /* Orange brand color */
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    /* Ensures it sits on top of the image */
+}
+
+.spotlight-body h4,
+p {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.spotlight-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ff9f1c;
+}
+
+.spotlight-body {
+    margin-left: 20px;
+}
+
+.spotlight-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+
+}
+
+.micro-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.micro-tag.gf {
+    background-color: rgb(148, 132, 102);
+    color: #824411;
+    border: 1px solid #e46f0f;
+    opacity: 0.8;
+
+}
+
+.micro-tag.df {
+    background-color: rgb(135, 165, 135);
+    color: rgb(10, 84, 10);
+    border: 1px solid rgb(10, 123, 10);
+    opacity: 0.8;
+}
+
+.spotlight-tags {
+    display: flex;
+    gap: 5px;
+    margin-right: 10px;
+}
+
+section {
+    background-color: #202020;
+}
+
+.testimonials h2,
+.chefs h2 {
+    color: white;
+    padding: 10px 20px;
+}
+
+.testimonials>div>p,
+.chefs>div>p {
+    color: #c0c0c0;
+    padding: 0 20px 20px;
+}
+
+/* === Review Card === */
+.review-card {
+    border-radius: 12px;
+    overflow: hidden;
+    display: block;
+}
+
+/* Left orange panel */
+.reviewer-side {
+    background-color: rgb(243, 137, 16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    height: 100%;
+    text-align: center;
+}
+
+/* Circular avatar */
+.reviewer-avatar img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffffff;
+    margin-bottom: 15px;
+}
+
+.reviewer-name {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.reviewer-title {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.78rem;
+    margin-bottom: 12px;
+}
+
+/* Gold stars */
+.review-stars i {
+    color: #ffd700;
+    font-size: 0.85rem;
+}
+
+/* Right dark panel */
+.review-content {
+    background-color: #2a2a2a;
+    padding: 35px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Large orange opening quote */
+.review-quote-icon {
+    font-size: 3rem;
+    line-height: 1;
+    color: rgb(243, 137, 16);
+    margin-bottom: 10px;
+    font-family: Georgia, serif;
+}
+
+/* Italic review text */
+.review-text {
+    font-style: italic;
+    color: #d0d0d0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+/* Bottom meta row */
+.review-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.8rem;
+    color: #909090;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 15px;
+}
+
+.review-date i {
+    margin-right: 5px;
+}
+
+/* Verified badge */
+.review-verified {
+    color: rgb(243, 137, 16);
+}
+
+.review-verified i {
+    margin-right: 4px;
+}
+
+.testimonials .carousel-inner {
+    overflow: hidden;
+    width: 100%;
+}
+
+.testimonials .carousel-control-prev,
+.testimonials .carousel-control-next {
+    top: 50%;
+    bottom: auto;
+    width: 45px;
+    height: 45px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: rgb(243, 137, 16);
+    opacity: 1;
+    transition: background-color 0.3s ease;
+}
+
+.testimonials .carousel-control-prev:hover,
+.testimonials .carousel-control-next:hover {
+    background-color: #e6caa9;
+}
+
+.testimonials .carousel-control-prev {
+    left: -55px;
+}
+
+.testimonials .carousel-control-next {
+    right: -55px;
+}
+
+.testimonials .row,
+.testimonials .col-lg-10 {
+    overflow: visible;
+}
+
+.chefs .spotlight-details {
+    padding: 30px 40px;
+}
+
+.chefs .spotlight-image {
+    padding-right: 30px;
+    position: relative;
+}
+
+.chefs .chef-title {
+    color: #d0d0d0;
+    font-size: 1.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.chefs .chef-summary,
+.chefs .chef-details {
+    color: #d0d0d0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.chefs .spotlight-details ul li {
+    color: #d0d0d0;
+    font-size: 0.9rem;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chefs .spotlight-details ul li i {
+    color: #e46f0f;
+    font-size: 1rem;
+}
+
+.chefs .accent-tag {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: rgb(243, 137, 16);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.chefs .accent-tag i {
+    margin-right: 6px;
+    color: #d0d0d0;
+}
+
+.chefs .member-info h4 {
+    color: #c0c0c0;
+    font-size: 1.2rem;
+    margin-left: 20px;
+
+}
+
+.chefs .member-info {
+    margin-top: 3rem !important;
+}
+
+.chefs .member-info .member-description {
+    color: #c0c0c0;
+    font-size: 0.8rem;
+    margin-left: 20px;
+
+}
+
+.chefs .member-info .member-role {
+    color: #d96716;
+    font-size: 0.8rem;
+    margin-left: 20px;
+
+}
+
+.chefs .member-info .member-footer .skill-tag {
+    color: #c0c0c0;
+    margin-left: 20px;
+    border-radius: 20rem;
+    border: 1px solid rgb(228, 111, 15);
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 0.7rem;
+}
+
+.chefs .member-info .member-footer .skill-tag i {
+    color: #d96716;
+}
+
+.chefs .crew-cards .crew-member .row,
+.chefs .container .head-chef {
+    box-shadow: 0 4px 6px rgba(95, 92, 92, 0.1);
+    border: 1px solid #302c2c;
+    transition: transform 0.3s ease;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.crew-member .crew-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.chefs .head-chef .spotlight-image {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.chefs .head-chef .spotlight-image img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.book-a-table .showcase-wrapper {
+    position: relative;
+    padding: 20px;
+}
+
+.book-a-table .showcase-wrapper .showcase-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px;
+}
+
+.book-a-table .showcase-wrapper .showcase-image img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.book-a-table .showcase-wrapper .showcase-image img:hover {
+    transform: scale(1.02);
+}
+
+.badge-top {
+    position: absolute;
+    left: -15px;
+    bottom: -15px;
+    background-color: #212529;
+    color: #c0c0c0;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 5px;
+    display: flex;
+    border-radius: 8px;
+
+}
+
+.badge-top i,
+.badge-bottom i {
+    color: rgb(228, 111, 15);
+    padding: 10px;
+    font-size: 20px;
+}
+
+.badge-bottom {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    background-color: #212529;
+    color: #c0c0c0;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 5px;
+    display: flex;
+    border-radius: 8px;
+
+}
+
+.book-a-table {
+    padding-bottom: 50px;
+}
+
+.book-a-table .booking-panel .form-control,
+.book-a-table .booking-panel .form-select {
+    color: white;
+    background-color: #202020;
+    font-size: 15px;
+    padding: 12px;
+    border: 1px solid #c0c0c0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.book-a-table .booking-panel .form-control::placeholder,
+.book-a-table .booking-panel .form-select::placeholder {
+    color: #c0c0c0;
+}
+
+.book-a-table .panel-header {
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c0c0c0;
+    padding-bottom: 10px;
+}
+
+.book-a-table .panel-header h3,
+.book-a-table .detail-card .detail-text h5 {
+    color: #c0c0c0;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.book-a-table .panel-header p,
+.book-a-table .detail-card .detail-text p {
+    color: #909090;
+    font-size: 1.0rem;
+    padding: 5px;
+}
+
+.book-a-table .panel-header .panel-label {
+    color: #d96716;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #d96716;
+    padding: 5px;
+    font-size: 1rem;
+    box-shadow: 1px 1px 1px #c0c0c0;
+    margin-bottom: 15px;
+    width: 40%;
+}
+
+.book-a-table .booking-panel {
+    min-height: 700px;
+    padding: 35px 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 12px;
+    border: 1px solid #2b2a2a;
+    box-shadow: 0px 1px 1px #909090;
+}
+
+.book-a-table .detail-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2a2a2a;
+    height: 100%;
+
+}
+
+.book-a-table .detail-card .detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    width: 45px;
+    height: 45px;
+    background-color: #8a6a58;
+    opacity: 0.8;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+.book-a-table .detail-card .detail-icon i {
+    color: #edb89e;
+    font-size: 1.5rem;
+}
+
+.book-a-table .detail-card .detail-text {
+    padding-top: 30px;
+}
+
+.footer {
+    background-color: #000000;
+    color: #d0d0d0;
+}
+
+.footer .social-links a {
+    color: #d96716;
+    padding: 5px;
+}
+
+.footer .row i {
+    color: #d96716;
+    padding: 10px;
+    justify-content: center;
+
+}
+
+.modal-menu-card {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgb(215, 115, 5);
+    padding: 10px;
+}
+
+.modal-menu-card img {
+    width: 80px !important;
+    height: 80px !important;
+    object-fit: cover;
+    border-radius: 0px;
+}
+
+.menu-item-modal {
+    display: block;
+}
+
+.modal-menu-list {
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.menu-card-content {
+    color: #d0d0d0;
+}
+
+.modal-content {
+    background-color: #202020 !important;
+}

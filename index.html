@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="container-fluid bg-dark text-light py-2">
+
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <!-- Contact Info -->
+            <div class="contact-info d-flex align-items-center">
+
+                <div class="me-4">
+                    <i class="bi bi-envelope me-2"></i>
+                    contact@example.com
+                </div>
+
+                <div>
+                    <i class="bi bi-phone me-2"></i>
+                    +1 5589 55488 55
+                </div>
+
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links d-flex align-items-center">
+
+                <i class="bi bi-twitter me-3"></i>
+
+                <i class="bi bi-facebook me-3"></i>
+
+                <i class="bi bi-instagram me-3"></i>
+
+                <i class="bi bi-linkedin"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Nav Bar-->
+    <nav class="navbar navbar-expand-lg fixed-top z-3" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand fs-3" href="#"><b>Flavora</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#chefs">Chefs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#book-a-table">Book a Table</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacts">Contacts</a>
+                    </li>
+                    <!--<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown link
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Dropdown 1</a></li>
+                            <li><a class="dropdown-item" href="#">Dropdown 2</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                                    <span>Deep Dropdown</span>
+                                    <i class="bi bi-chevron-down toggle-dropdown"></i>
+                                </a>
+                                <ul>
+                                    <li><a href="#">Deep Dropdown 1</a></li>
+                                    <li><a href="#">Deep Dropdown 2</a></li>
+                                    <li><a href="#">Deep Dropdown 3</a></li>
+                                    <li><a href="#">Deep Dropdown 4</a></li>
+                                    <li><a href="#">Deep Dropdown 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Dropdown 3</a></li>
+                        </ul>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Hero Section-->
+    <main class="main">
+        <section id="hero" class="hero section bg-dark">
+            <div class="container-fluid p-0">
+                <div class="position-relative">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" id="heroBannerInner">
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="position-absolute top-50 start-50 translate-middle text-white z-3 text-center">
+                        <div class="d-flex align-items-start"></div>
+                    </div>
+                </div>
+
+                <!--Info Bar-->
+                <div class="container-fluid bg-black">
+                    <div class="container">
+                        <div class="row g-0 info-bar">
+                            <div class="col-md-4">
+                                <div class="info-bar-item"><i class="bi bi-clock-fill"></i></div>
+                                <div class="info-bar-text">
+                                    <span>Opening Hours</span>
+                                    <strong>Mon-Sun: 11am-11pm</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="info-bar-item"><i class="bi bi-telephone-fill"></i></div>
+                                <div class="info-bar-text">
+                                    <span>Reservations</span>
+                                    <strong>+1 (555) 234-5678</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="info-bar-item"><i class="bi bi-geo-alt-fill"></i></div>
+                                <div class="info-bar-text">
+                                    <span>Our Location</span>
+                                    <strong>742 Evergreen Terrace, IL</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="about-section bg-black text-white py-5" id="about">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>About</h2>
+                    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                </div>
+                <div class="row g-5 align-items-center mt-3">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="info-block">
+                            <span class="hero-tag">Discover Our Story</span>
+                            <h2>Redefining Quality Through Innovation</h2>
+                            <p class="text-lead">Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus
+                                ac cursus commodo, tortor mauris condimentum nibh.</p>
+                            <p>Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu leo.
+                                Vestibulum id ligula porta felis euismod semper aenean lacinia bibendum nulla sed
+                                consectetur.</p>
+                            <div class="row g-4 mt-2">
+                                <div class="col-sm-6">
+                                    <div class="highlight-card">
+                                        <div class="icon-wrap">
+                                            <i class="bi bi-gem"></i>
+                                        </div>
+                                        <h4>Premium Quality</h4>
+                                        <p>Etiam porta sem malesuada magna mollis euismod vivamus sagittis.</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="highlight-card">
+                                        <div class="icon-wrap">
+                                            <i class="bi bi-lightning-charge"></i>
+                                        </div>
+                                        <h4>Rapid Delivery</h4>
+                                        <p>Aenean lacinia bibendum nulla sed consectetur adipiscing elit integer.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="visual-block">
+                            <div class="main-image-wrapper">
+                                <img src="images/rest-2.jpg" class="img-fluid rounded" alt="Showcase Image">
+                            </div>
+                            <div class="row g-3 mt-3">
+                                <div class="col-6 position-relative">
+                                    <img src="images/rest-4.jpg" class="img-fluid rounded">
+                                    <div class="floating-card">
+                                        <span class="metric-number">18</span>
+                                        <span class="metric-label">Years of Excellence</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <img src="images/rest-5.jpg" class="img-fluid rounded">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Menu-->
+        <section class="menu-section bg-black text-white py-5" id="menu">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Menu</h2>
+                    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                </div>
+                <div class="conta">
+                    <div class="isotope-layout">
+                        <div class="filter-tabs">
+                            <ul>
+                                <li class="filter-tab active" data-filter="all">Complete Menu</li>
+                                <li class="filter-tab" data-filter="starters">Starters</li>
+                                <li class="filter-tab" data-filter="main-course">Main Course</li>
+                                <li class="filter-tab" data-filter="desserts">Desserts</li>
+                                <li class="filter-tab" data-filter="beverages">Beverages</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--Menu Grid -->
+                    <div class="row mt-5 isotope-container" id="menuContainer">
+                        <!-- Dynamic menu items will be injected here by JS -->
+                    </div>
+
+                    <div class="info-strip">
+                        <div class="row align-items-center mt-3">
+                            <div class="col-lg-8">
+                                <i class="bi bi-calendar2-check"></i><span style="font-size: 0.75rem;">Selections
+                                    rotate with the seasons.
+                                    Availability may vary depending on fresh ingredients.</span>
+                            </div>
+                            <div class="col-lg-4 d-flex justify-content-lg-end align-items-center pe-4"><a href="#"
+                                    class="download-link">
+                                    <i class="bi bi-file-earmark-pdf"></i>
+                                    <span>Download Full Menu</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="specials-section">
+                        <div class="spotlight-header">
+                            <span class="spotlight-label">
+                                <i class="bi bi-gem"></i> Curated Picks
+                            </span>
+                            <h3>Today's Kitchen Highlights</h3>
+                            <p class="text-center">Hand-selected creations showcasing peak-season produce and
+                                artisan technique</p>
+                            <div class="row g-4" id="specialsContainer">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+        </section>
+        <!--Testimonials-->
+        <section class="testimonials section">
+            <div class="container section-title">
+                <h2 class="text-center pt-5">Testimonials</h2>
+                <p class="text-center">Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+                </p>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel"
+                                data-bs-interval="8000">
+                                <div class="carousel-inner" id="carouselInner">
+
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--Chef's Section-->
+        <section class="chefs section" id="chefs">
+            <div class="container section-title">
+                <h2 class="text-center pt-5">Chefs</h2>
+                <p class="text-center">Necessitatibus eius consequatur ex aliquid fuga eum quidem
+                    sint consectetur velit</p>
+            </div>
+            <div class="container">
+                <div class="row align-items-center g-0 head-chef">
+                </div>
+                <div class="row g-4 crew-cards mt-4">
+                </div>
+            </div>
+        </section>
+        <section id="book-a-table" class="book-a-table section dark-background">
+            <div class="container section-title pt-5">
+                <h2>Book a Table</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div>
+            <div class="container">
+                <div class="row gy-5 align-items-center">
+                    <div class="col-lg-7">
+                        <div class="showcase-wrapper mt-5">
+                            <div class="showcase-image">
+                                <img src="images/showcase-image.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="floating-badge badge-top">
+                                <i class="bi bi-star-fill me-1"></i>
+                                <div>
+                                    <strong>4.9 Rating</strong><br>
+                                    <span>850+ Reviews</span>
+                                </div>
+                            </div>
+                            <div class="floating-badge badge-bottom">
+                                <i class="bi bi-people-fill me-1"></i>
+                                <div>
+                                    <strong>12,000+</strong><br>
+                                    <span>Happy Diners</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="booking-panel">
+                            <div class="panel-header mb-3">
+                                <span class="panel-label">
+                                    <i class="bi bi-calendar2-check"></i> Book Your Table
+                                </span>
+                                <h3>Secure Your Spot Tonight</h3>
+                                <p>Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo lacinia eget
+                                    consectetur sed.</p>
+                            </div>
+                            <form class="email-form" id="bookingForm">
+                                <div class="row gy-3">
+                                    <div class="col-12">
+                                        <input type="text" name="name" class="form-control" placeholder="Your Name"
+                                            required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="email" name="email" class="form-control" placeholder="Your Email"
+                                            required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="tel" name="phone" class="form-control" placeholder="Your Phone"
+                                            required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="date" name="date" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="time" name="time" class="form-control" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select class="form-select" name="party_size" required>
+                                            <option selected>Party Size</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                            <option value="4">Four</option>
+                                            <option value="5">Five</option>
+                                            <option value="6">Six+</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select class="form-select" name="event" required>
+                                            <option selected>Event Type</option>
+                                            <option value="birthday">Birthday</option>
+                                            <option value="anniversary">Anniversary</option>
+                                            <option value="corporate">Corporate Dinner</option>
+                                            <option value="date">Romantic Evening</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="add-menu-item" style="color: white; cursor: pointer;"
+                                        data-bs-toggle="modal" data-bs-target="#bookingMenuModal">
+                                        <button type="button" class="btn btn-secondary" id="openMenuModalBtn"><i
+                                                class="bi bi-plus"> Add Menu Item</i></button>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea name="message" class="form-control"
+                                            placeholder="Special Requests (Optional)" rows="4"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-brand w-100">Submit Booking
+                                            Request</button>
+                                    </div>
+                                </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row gy-4 mt-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <i class="bi bi-clock-fill"></i>
+                            </div>
+                            <div class="detail-text">
+                                <h5>Opening Hours</h5>
+                                <p>Tue - Thu: 5:30 PM - 10:30 PM<br>Fri - Sat: 5:00 PM - 11:30 PM<br>Sun: 4:00 PM - 9:30
+                                    PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <i class="bi bi-pin-map-fill"></i>
+                            </div>
+                            <div class="detail-text">
+                                <h5>Our Location</h5>
+                                <p>2918 Maple Drive, Suite 4<br>Portland, OR 97201</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <div class="detail-text">
+                                <h5>Call Ahead</h5>
+                                <p>+1 (555) 482-7103<br><small>Lines open 1:00 PM - 10:00 PM</small></p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="detail-card d-flex align-items-center g-3">
+                            <div class="detail-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div class="detail-text">
+                                <h5>Add a Testiminal</h5>
+                                <button class="btn btn-secondary" type="button" id="openTestimonialFormBtn"
+                                    data-bs-toggle="modal" data-bs-target="#testimonialModal"> Open
+                                    Form</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!--Footer-->
+        <footer id="contacts" class="footer dark-background">
+            <div class="container">
+                <div class="row gy-3">
+                    <div class="col-lg-3 col-md-6 d-flex">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <div class="address">
+                            <h4>Address</h4>
+                            <p>A108 Adam Street</p>
+                            <p>New York, NY 535022</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 d-flex">
+                        <i class="bi bi-telephone"></i>
+                        <div class="phone">
+                            <h4>Phone</h4>
+                            <p>+1 555 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 d-flex">
+                        <i class="bi bi-clock-fill"></i>
+                        <div class="opening">
+                            <h4>Opening Hours</h4>
+                            <p>
+                                <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
+                                <strong>Sunday</strong>: <span>Closed</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4>Follow Us</h4>
+                        <div class="social-links d-flex">
+                            <a href="#" class="twitter">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a href="#" class="facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#" class="instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#" class="linkedin">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </footer>
+    </main>
+    <!--Add booking menu modal-->
+    <div class="modal fade modal-dark-custom" id="bookingMenuModal" tabindex="-1"
+        aria-labelledby="bookingMenuModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookingMenuModalLabel" style="color: white;">Select Menu Items</h5>
+                </div>
+                <div class="modal-body">
+                    <!-- Search and Filters -->
+                    <div class="row g-2 align-items-center mb-3">
+                        <div class="col-md-6 justify-content-center">
+                            <div class="modal-search-wrapper" style="margin-left: 50px;">
+                                <i class="bi bi-search"></i>
+                                <input type="text" class="form-control" id="modalSearchInput"
+                                    placeholder="Search Item..." style="width: 200px;">
+                            </div>
+                        </div>
+                        <div class="conta">
+                            <div class="isotope-layout">
+                                <div class="filter-tabs" id="modalFilterTabs">
+                                    <ul>
+                                        <div class="filter-tab active" data-filter="all">All</div>
+                                        <div class="filter-tab" data-filter="starters">Starters</div>
+                                        <div class="filter-tab" data-filter="main-course">Mains</div>
+                                        <div class="filter-tab" data-filter="desserts">Desserts</div>
+                                        <div class="filter-tab" data-filter="beverages">Beverages</div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scrollable menu item list -->
+                    <div class="row g-3 modal-menu-list" id="modalMenuContainer">
+                        <!-- Example Static Card Item for Preview -->
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-brand" id="saveBookingMenuSelectionsBtn">Save
+                        selections</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Add a Testiminal Modal-->
+    <div class="modal fade modal-dark-custom" id="testimonialModal" tabindex="-1"
+        aria-labelledby="testimonialModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-l">
+            <div class="modal-content">
+                <div class="modal-header justify-content-between">
+                    <h5 class="modal-title" id="testimonialModalLabel" style="color: white;">Add your Review</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container" style="padding: 50px;">
+                        <form class="addReviewForm">
+                            <div class="form-group">
+                                <label for="reviewer_name">Name:</label>
+                                <input type="text" class="form-control" id="reviewer_name" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewer_designation">Designation:</label>
+                                <input type="text" class="form-control" id="reviewer_designation"
+                                    placeholder="Designation">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reviewer_review">Review:</label>
+                                <input type="text" class="form-control" id="reviewer_review" placeholder="Review">
+                            </div>
+                            <div class="form-group mt-4 d-flex align-items-center gap-5">
+                                <label for="reviewer_rating" class="form-label"
+                                    style="color: white; font-size: 1.2rem;">Rating:</label>
+                                <span class="star-rating d-flex gap-2"
+                                    style="font-size: 1.8rem; color: #ccc; cursor: pointer;">
+                                    <i class="bi bi-star-fill star-icon" data-value="1"></i>
+                                    <i class="bi bi-star-fill star-icon" data-value="2"></i>
+                                    <i class="bi bi-star-fill star-icon" data-value="3"></i>
+                                    <i class="bi bi-star-fill star-icon" data-value="4"></i>
+                                    <i class="bi bi-star-fill star-icon" data-value="5"></i>
+                                </span>
+                                <input type="hidden" class="form-control" id="reviewer_rating" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewer_image_url">Image:</label>
+                                <input type="file" class="form-control" id="reviewer_image_url" placeholder="Image"
+                                    accept="*/image">
+                            </div>
+
+
+
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-brand" id="saveReviewFormBtn">Save
+                        selections</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="script.js"></script>
+<script src="user_side/user_banner.js"></script>
+<script src="user_side/user_menu.js"></script>
+<script src="user_side/user_chef.js"></script>
+<script src="user_side/user_menu_modal.js"></script>
+<script src="user_side/user_reservation.js"></script>
+<script src="user_side/user_review_modal.js"></script>
+<script src="user_side/user_testimonials.js"></script>
+
+
+
+
+
+</html>
