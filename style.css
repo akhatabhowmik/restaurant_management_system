@@ -1156,3 +1156,246 @@ section {
 .modal-content {
     background-color: #202020 !important;
 }
+
+/* === User Signup / Login Screen Custom Design === */
+.user-login-body {
+    background-color: #000000 !important;
+    font-family: 'Nunito', sans-serif;
+    color: #ffffff;
+}
+
+.signup-card {
+    background-color: #17151b;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.visual-panel {
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.visual-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.back-btn-pill {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-btn-pill:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.image-overlay-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.visual-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dark-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(23, 21, 27, 0.2) 0%, rgba(23, 21, 27, 0.95) 100%);
+}
+
+.visual-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.visual-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.slider-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: inline-block;
+}
+
+.slider-dots .dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.form-panel {
+    background-color: #17151b;
+}
+
+.form-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    color: #a09da6;
+    font-size: 0.95rem;
+}
+
+.accent-link {
+    color: rgb(215, 115, 5);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.accent-link:hover {
+    color: rgb(243, 137, 16);
+}
+
+.accent-link-underline {
+    color: rgb(215, 115, 5);
+    text-decoration: underline;
+}
+
+.accent-link-underline:hover {
+    color: rgb(243, 137, 16);
+}
+
+.form-input-container {
+    background-color: #24222a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 4px 16px;
+    transition: all 0.3s ease;
+}
+
+.form-input-container:focus-within {
+    border-color: rgb(215, 115, 5);
+    box-shadow: 0 0 0 2px rgba(215, 115, 5, 0.2);
+}
+
+.form-input-field {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    padding: 12px 0;
+    font-size: 0.95rem;
+}
+
+.form-input-field::placeholder {
+    color: #7b7880;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #7b7880;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.password-toggle-icon:hover {
+    color: #ffffff;
+}
+
+.custom-checkbox-input {
+    background-color: #24222a;
+    border-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.custom-checkbox-input:checked {
+    background-color: rgb(215, 115, 5);
+    border-color: rgb(215, 115, 5);
+}
+
+.checkbox-label {
+    font-size: 0.85rem;
+    color: #a09da6;
+    cursor: pointer;
+}
+
+.btn-create-account {
+    background-color: rgb(215, 115, 5) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease !important;
+}
+
+.btn-create-account:hover {
+    background-color: rgb(243, 137, 16) !important;
+    transform: translateY(-1px);
+}
+
+.divider-line {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.divider-text {
+    color: #7b7880;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-social {
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    color: #ffffff !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease !important;
+}
+
+.btn-social:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}

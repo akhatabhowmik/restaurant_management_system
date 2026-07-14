@@ -6,7 +6,7 @@ from database import create_db, engine
 import models
 from models import Category
 from sqlmodel import Session, select
-from routers import dashboard, menu, banners, chefs, reservations, categories, testimonials
+from routers import dashboard, menu, banners, chefs, reservations, categories, testimonials, auth
 
 from fastapi.staticfiles import StaticFiles
 
@@ -49,6 +49,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 # ── Routers ───────────────────────────────────────────────────────────────────
+app.include_router(auth.router,    prefix="/auth",    tags=["Auth"])
 app.include_router(dashboard.router,    prefix="/dashboard",    tags=["Dashboard"])
 app.include_router(menu.router,         prefix="/menu",         tags=["Menu"])
 app.include_router(banners.router,      prefix="/banners",      tags=["Banners"])

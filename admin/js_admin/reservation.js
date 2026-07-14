@@ -1,11 +1,21 @@
 const api = "http://localhost:8000";
-async function loadReservations() {
-    const res = await fetch(`${api}/reservations`);
+
+let currentPage = 1;
+const itemPerPage = 10;
+
+async function loadReservations(page = 1) {
+    currentPage = page;
+    const res = await fetch(`${api}/reservations/?page=${page}&limit=${itemPerPage}`);
     const reservation = await res.json();
 
     const tbody = document.querySelector("#dataTable tbody")
     tbody.innerHTML = "";
-    reservation.forEach(b => {
+    if (reservation.data.length === 0) {
+        tbody.innerHTML += `<tr><td colspan="10" class="text-center">No reservations</td></tr>`;
+        renderPagination(0, 1, itemsPerPage, loadReservations);
+        return;
+    }
+    reservation.data.forEach(b => {
         tbody.innerHTML += `
         <tr>
              <td>${b.id}</td>
@@ -21,8 +31,10 @@ async function loadReservations() {
              <button class="btn btn-danger btn-sm mt-2" onclick="deleteReservation(${b.id})"><i class="fa fa-trash"></i></button></td>
         </tr>`
     });
+    renderPagination(reservation.total, reservation.page, reservation.limit, loadReservations);
 
 }
+
 
 async function editReservation(id) {
     editReservationId = id;
@@ -93,4 +105,4 @@ async function deleteReservation(id) {
 
 }
 
-document.addEventListener("DOMContentLoaded", loadReservations);
+document.addEventListener("DOMContentLoaded", () => loadReservations(1));

@@ -1,4 +1,7 @@
 const today_res_api = "http://localhost:8000";
+
+
+
 async function loadTodayReservations() {
     const res = await fetch(`${today_res_api}/reservations/today_reservations`);
     const reservation = await res.json();
@@ -52,7 +55,10 @@ async function loadTodayReservations() {
             </tr>`;
         }
     } else {
-        tbody.innerHTML = `<tr>
+        pending_tbody.innerHTML = `<tr>
+                <td colspan="9" class="text-center">No reservations found.</td>
+            </tr>`;
+        confirm_tbody.innerHTML = `<tr>
                 <td colspan="9" class="text-center">No reservations found.</td>
             </tr>`;
     }
@@ -92,5 +98,6 @@ async function loadTodayReservations() {
 
 
 
-
-document.addEventListener("DOMContentLoaded", loadTodayReservations);
+document.addEventListener("DOMContentLoaded", () => {
+    loadTodayReservations()
+});

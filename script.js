@@ -1,52 +1,8 @@
-/*document.addEventListener('DOMContentLoaded', function () {
-    // 1. Toggle deep dropdown on click
-    const subDropdownLinks = document.querySelectorAll('.dropdown-menu .dropdown > a');
 
-    subDropdownLinks.forEach(function (link) {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation(); // CRITICAL: Stops Bootstrap from closing the main dropdown
-
-            const parentLi = this.closest('.dropdown');
-            parentLi.classList.toggle('active');
-
-            const chevron = this.querySelector('.toggle-dropdown');
-            if (chevron) {
-                chevron.classList.toggle('bi-chevron-down');
-                chevron.classList.toggle('bi-chevron-up');
-            }
-        });
-    });
-
-    // 2. Reset nested dropdowns when the main dropdown is closed
-    const mainDropdowns = document.querySelectorAll('.nav-item.dropdown');
-
-    mainDropdowns.forEach(function (dropdown) {
-        // Listen to Bootstrap's hide/hidden event
-        dropdown.addEventListener('hidden.bs.dropdown', function () {
-            // Find all active deep dropdowns inside this closed main menu
-            const activeSubDropdowns = this.querySelectorAll('.dropdown.active');
-
-            activeSubDropdowns.forEach(function (sub) {
-                // Remove the active class to hide the sub-menu
-                sub.classList.remove('active');
-
-                // Reset the chevron icon back to pointing down
-                const chevron = sub.querySelector('.toggle-dropdown');
-                if (chevron) {
-                    chevron.classList.remove('bi-chevron-up');
-                    chevron.classList.add('bi-chevron-down');
-                }
-            });
-        });
-    });
-});*/
-
-// Toggle scrolled state on the navbar
 const navbar = document.querySelector('.navbar');
 
 function handleScroll() {
-    if (window.scrollY > 40) { // If scrolled past the top bar height (40px)
+    if (window.scrollY > 40) {
         navbar.classList.add('select-scrolled');
     } else {
         navbar.classList.remove('select-scrolled');
@@ -54,21 +10,18 @@ function handleScroll() {
 }
 
 window.addEventListener('scroll', handleScroll);
-window.addEventListener('load', handleScroll); // Runs on load in case page is reloaded scrolled-down
+window.addEventListener('load', handleScroll);
 
-// Isotope-style filtering for menu items
 const filterTabs = document.querySelectorAll('.filter-tab');
 const menuItems = document.querySelectorAll('.menu-item');
 
 filterTabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-        // 1. Remove active state from all tabs and add it to the clicked tab
         filterTabs.forEach(t => t.classList.remove('active'));
         this.classList.add('active');
 
         const filterValue = this.getAttribute('data-filter');
 
-        // 2. Loop through all menu cards and show/hide them based on category class
         const currentItems = document.querySelectorAll('.menu-item');
         currentItems.forEach(function (item) {
             if (filterValue === 'all' || item.classList.contains(filterValue)) {
@@ -81,7 +34,56 @@ filterTabs.forEach(function (tab) {
     });
 });
 
-// Testimonial Carousel
+const api_url = "http://127.0.0.1:8000"
+const user_login = document.getElementById("login");
+const username = document.getElementById("profileName");
+
+async function loadProfile() {
+    const token = localStorage.getItem('user_access_token');
+    if (!token) return;
+    try {
+        const res = await fetch(`${api_url}/auth/profile`,
+            {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+        if (res.ok) {
+            const data = await res.json();
+            if (username) {
+                username.innerText = data.username;
+            }
+        }
+    }
+    catch (err) {
+        console.error("Error loading profile:", err);
+    }
+}
+
+if (user_login) {
+    const token = localStorage.getItem("user_access_token");
+    const link = user_login.querySelector("a");
+
+    const ifInUserSide = window.location.pathname.includes("/user_side/");
+
+    const loginPageUrl = ifInUserSide ? "user_login.html" : "user_side/user_login.html";
+
+    if (token) {
+        link.innerText = "Logout";
+        link.href = "#";
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            localStorage.removeItem("user_access_token");
+            window.location.href = loginPageUrl;
+        });
+        loadProfile();
+    } else {
+        link.innerText = "Login";
+        link.href = loginPageUrl;
+        if (username) {
+            username.innerText = "Account";
+        }
+    }
+}
+
 const carouselEl = document.getElementById('testimonialCarousel');
 
 if (carouselEl) {
@@ -96,7 +98,6 @@ if (carouselEl) {
     });
 }
 
-//On Scroll Active Nav-bar
 
 $(window).on('scroll', function () {
     var scrollPos = $(window).scrollTop() + 100;
@@ -110,3 +111,4 @@ $(window).on('scroll', function () {
         }
     });
 });
+

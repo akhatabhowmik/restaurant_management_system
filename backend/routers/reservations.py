@@ -1,10 +1,11 @@
 import shutil, os
 from typing import Optional
-from datetime import datetime
+from datetime import datetime, date
 from sqlmodel import Session, select, desc, func
 from fastapi import APIRouter, Depends, HTTPException, Form
 from database import get_db
-from models import Reservation, Booking, MenuItem
+from models import Reservation, Booking, MenuItem, User
+from routers.auth import get_current_user
 from schemas import Create_Reservation, ReservationOut
 import json
 
@@ -12,19 +13,62 @@ import json
 router = APIRouter()
 
 @router.get("/")
-def get_all_reservations(db: Session= Depends(get_db)):
-    reservations= db.exec(select(Reservation).order_by(desc(Reservation.id))).all()
-    return reservations
+def get_all_reservations(page: int=1, limit: int= 10, db: Session= Depends(get_db)):
+    offset= (page - 1) * limit
+    total_count= db.exec(select(func.count(Reservation.id))).one()
+    reservations= db.exec(select(Reservation).order_by(desc(Reservation.id)).offset(offset).limit(limit)).all()
+    return {
+        "total": total_count,
+        "page": page,
+        "limit": limit,
+        "data": reservations
+    }
 
 @router.get("/bookings/")
-def getallBookings(db: Session= Depends(get_db)):
-    bookings= db.exec(select(Booking).join(Reservation).where(Reservation.status=="confirm").order_by(desc(Booking.id))).all()
+def getallBookings(page: int=1, limit: int=10, db: Session= Depends(get_db)):
+    offset= (page - 1)*limit
+    total_count= db.exec(select(func.count(Booking.id)).join(Reservation).where(Reservation.status=="confirm")).one()
+    bookings= db.exec(select(Booking).join(Reservation).where(Reservation.status=="confirm").order_by(desc(Booking.id)).offset(offset).limit(limit)).all()
     result=[]
     for booking in bookings:
+        res= booking.reservation
         result.append({
             "id": booking.id,
             "reservation_id": booking.reservation_id,
             "menu_items": booking.menu_items,
+            "name": res.name if res else "-",
+            "date": str(res.date) if res else "-",
+            "time": res.time if res else "-",
+            "table_number": res.table_number if res else "Not Assigned",
+            "message": res.message if res else "None"
+        })
+    return {
+        "total": total_count,
+        "page": page,
+        "limit": limit,
+        "data": result
+    }
+
+@router.get("/user_reservation")
+def get_user_reservation(current_user= Depends(get_current_user), db: Session= Depends(get_db)):
+    user= db.exec(select(User).where(User.email==current_user)).first()
+    reservation= db.exec(select(Reservation).where(Reservation.user_id==user.id)).all()
+    bookings= db.exec(select(Booking).join(Reservation).where(Reservation.user_id==user.id)).all()
+    result=[]
+    if (not reservation):
+        return {"message": "No reservation made yet"}
+    if (not bookings):
+        return{"message": "No booking made yet"}
+    for booking in bookings:
+        result.append({
+            "reservation_id": booking.reservation_id,
+            "booking_id": booking.id,
+            "date": booking.reservation.date,
+            "time": booking.reservation.time,
+            "party_size": booking.reservation.party_size,
+            "event_type": booking.reservation.event_type,
+            "menu_items": booking.menu_items,
+            
         })
     return result
 
@@ -100,6 +144,23 @@ def get_today_reservations_count(db: Session= Depends(get_db)):
     reservations= db.exec(select(Reservation).filter(Reservation.date==today)).all()
     return {"count": len(reservations)}
 
+@router.get("/slot_availability")
+def get_slot_availability(date: str, db: Session=Depends(get_db)):
+    slots=["14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"]
+
+    now= datetime.now()
+    current_date= now.strftime("%Y-%m-%d")
+    current_time= now.strftime("%H:%M")
+    reservation= db.exec(select(Reservation).where(Reservation.date==date)).all()
+    count= {slot: 0 for slot in slots}
+    for r in reservation:
+        if r.time in count:
+            count[r.time]+=1
+    for slot in slots:
+        if date==current_date and slot<=current_time:
+            count[slot]=5
+    return count
+
 @router.get("/{id}")
 def get_reservation_by_id(id: int, db:Session= Depends(get_db)):
     reservation=db.get(Reservation, id)
@@ -110,7 +171,22 @@ def get_reservation_by_id(id: int, db:Session= Depends(get_db)):
 
 
 @router.post("/", response_model=ReservationOut)
-def create_reservation(data: Create_Reservation, db: Session= Depends(get_db)):
+def create_reservation(data: Create_Reservation, db: Session= Depends(get_db), current_user: str= Depends(get_current_user)):
+    user= db.exec(select(User).where(User.email==current_user)).first()
+    user_id=user.id if user else None
+
+    now= datetime.now()
+    if data.date < now.date():
+        raise HTTPException(status_code=400, detail="Cannot book a reservation in the past.")
+    if data.date==now.date():
+        current_time= now.strftime("%H:%M")
+        if data.time <= current_time:
+            raise HTTPException(status_code=400, detail="This time slot has already passed today.")
+
+    slot_count= db.exec(select(func.count(Reservation.id)).where(Reservation.date == data.date).where(Reservation.time==data.time)).one()
+    if slot_count >=5:
+        raise HTTPException(status_code=400, detail="This slot is fully booked. Please choose a different slot or date")
+        
     reservation= Reservation(
         name= data.name,
         email= data.email,
@@ -121,7 +197,8 @@ def create_reservation(data: Create_Reservation, db: Session= Depends(get_db)):
         event_type= data.event,
         message= data.message,
         status= "pending",
-        created_at=datetime.now()
+        created_at=datetime.now(),
+        user_id= user_id
 
     )
     db.add(reservation)

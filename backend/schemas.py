@@ -3,6 +3,21 @@ from datetime import date
 from typing import Optional
 from fastapi import UploadFile, File
 
+class UserSignup(BaseModel):
+    username: str
+    email: str
+    phone: str
+    password: str
+
+class LoginUser(BaseModel):
+    email: str
+    password: str
+    role: Optional[str] = "user"
+
+class ProfileUpdate(BaseModel):
+    username: str
+    phone: str
+
 class Create_Reservation(BaseModel):
     name: str
     email:str

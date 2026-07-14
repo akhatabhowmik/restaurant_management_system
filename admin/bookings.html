@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet">
+    <script src="js_admin/auth_gaurd.js"></script>
 
 </head>
 
@@ -150,13 +151,13 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span id="profilename" class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" id="profilePage">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -216,10 +217,20 @@
                                 </tbody>
                             </table>
                         </div>
+                        </table>
+                    </div>
+                    <!-- Add this pagination block here -->
+                    <div class="d-flex justify-content-between align-items-center mt-3 px-5 pb-3">
+                        <div class="text-secondary" id="pagination-info">Showing 0 of 0</div>
+                        <ul class="pagination mb-0" id="pagination-controls"></ul>
                     </div>
                 </div>
             </div>
+
         </div>
+    </div>
+    </div>
+    </div>
     </div>
 
     <div class="modal fade" id="printMenuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -257,6 +268,25 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="#" onclick="logout(event)">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Bootstrap core JavaScript-->
@@ -275,5 +305,8 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js_admin/load_profile.js"></script>
+    <script src="js_admin/render_pagination.js"></script>
     <script src="js_admin/bookings.js"></script>
+
 </body>

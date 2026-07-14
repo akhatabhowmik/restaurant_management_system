@@ -4,13 +4,16 @@ from decimal import Decimal
 from sqlmodel import SQLModel, Field, Relationship
 
 
-class AdminUser(SQLModel, table=True):
+class User(SQLModel, table=True):
     __tablename__ = "admin_users"
 
     id: Optional[int] = Field(default=None, primary_key=True)
     username: str = Field(max_length=100)
     email: str = Field(max_length=100, unique=True)
+    phone: str = Field(max_length=10, unique=True)
     hashed_password: str
+    role: str= Field(max_length=50, default="user")
+    created_at: Optional[datetime] = Field(default_factory=datetime.utcnow)
 
 
 class Banner(SQLModel, table=True):
@@ -81,6 +84,7 @@ class Reservation(SQLModel, table=True):
     status: str = Field(default="pending", max_length=20)
     table_number: Optional[str]= None
     created_at: Optional[datetime] = Field(default_factory=datetime.utcnow)
+    user_id: Optional[int]= Field(default= None, foreign_key= "admin_users.id")
     booking: Optional["Booking"]= Relationship(back_populates="reservation")
 
 class Booking(SQLModel, table=True):
