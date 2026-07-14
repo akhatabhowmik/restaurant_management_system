@@ -112,3 +112,7 @@ $(window).on('scroll', function () {
     });
 });
 
+const adminSite = document.getElementById("adminSite");
+adminSite.addEventListener("click", function () {
+    window.location.href = "admin/login.html";
+});
